@@ -60,11 +60,10 @@ public class HandlerActivity extends AppCompatActivity {
                     }
                 }
             }).start();
-
         });
 
         findViewById(R.id.btn_handler2).setOnClickListener(v -> {
-
+            runBackgroundThread();
         });
     }
 
@@ -97,17 +96,31 @@ public class HandlerActivity extends AppCompatActivity {
         @Override
         public void run() {
             super.run();
-            if (Looper.myLooper() == null) {
-                Looper.prepare();
-            }
+
             handler = new Handler(Looper.myLooper()) {
                 @Override
                 public void handleMessage(@NonNull Message msg) {
                     super.handleMessage(msg);
                     Log.d(TAG, "Handler handleMessage " + msg.toString());
+                    textView.setText(String.valueOf(msg.getData().getInt("progress")));
                 }
             };
-            Looper.loop();
+
+            for (int i = 0; i < 5; i++) {
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Message msg = handler.obtainMessage();
+                Bundle data = new Bundle();
+                data.putInt("progress", i);
+                msg.setData(data);
+                handler.sendMessage(msg);
+            }
+
             Log.d(TAG, "Thread is killed ?");
         }
 
