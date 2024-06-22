@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bitmask.android.demos.databinding.FragmentFirstBinding;
 import com.bitmask.android.demos.handler.HandlerActivity;
+import com.bitmask.android.demos.retrofit.RetrofitActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class FirstFragment extends Fragment {
         );
 
         activityInfoList.add(new ActivityInfo("HandlerActivity", HandlerActivity.class));
-        activityInfoList.add(new ActivityInfo("HandlerActivity", HandlerActivity.class));
+        activityInfoList.add(new ActivityInfo("RetrofitActivity", RetrofitActivity.class));
         activityInfoList.add(new ActivityInfo("HandlerActivity", HandlerActivity.class));
         activityInfoList.add(new ActivityInfo("HandlerActivity", HandlerActivity.class));
         activityInfoList.add(new ActivityInfo("HandlerActivity", HandlerActivity.class));

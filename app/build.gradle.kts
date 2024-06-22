@@ -47,4 +47,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+
+    implementation("androidx.startup:startup-runtime:1.1.1")
+
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.3.0")
+    // OkHttp3
+    implementation("com.squareup.okhttp3:okhttp:3.14.9")
+    implementation("com.squareup.okhttp3:logging-interceptor:3.14.9")
+    // RxJava2
+    implementation("io.reactivex.rxjava2:rxjava:2.1.9")
+    implementation("io.reactivex.rxjava2:rxandroid:2.0.2")
 }
